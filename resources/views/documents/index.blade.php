@@ -1,43 +1,50 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document Management System</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-  <header>
-    <nav class="my-navbar">
-      <a class="my-navbar-barand" href="/"> Document Management System</a>
-    </nav>
-  </header>
-  <main>
-    <div class="container">
-      <div class="row">
-        <div class="col col-md-4">
-          <nav class="panel panel-default">
-            <div class="panel-heading">フォルダ</div>
-            <div class="panel-body">
-              <a href="#" class="btn btn-default btn-block">
-                フォルダを追加する
-              </a>
+@extends('app') {{-- app.blade.php をベースに使うことを宣言 --}}
+
+@section('title', '文書一覧') {{-- app.blade.php の @yirld('title') に対応 --}}
+
+@section('content')
+@include('navbar')
+<br>
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+        aria-selected="true">一覧</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+        aria-selected="false">保有期限</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      {{--@foreach($documents as $document)--}}
+      <div class="card mt-3">
+        <div class="card-body d-flex flex-row">
+          <div>
+            <div class="font-weight-bold">
+              タイトル
             </div>
-            <div class="list-group">
-              {{--@foreach($documents as $document)
-              <a href="{{ route('documents.index', ['id' => $document->id]) }}" class="list-group-item">
-                {{ $document->title }}
-              </a>
-              @endforeach--}}
+            <div class="font-weight-lighter">
+              2020/2/1 12:00
             </div>
-          </nav>
+            <i class="fas fa-user-circle fa-3x mr-1"></i>
+          </div>
         </div>
-        <div class="colum col-md-8">
-          テスト
+        <div class="card-body pt-0 pb-2">
+          <h3 class="h4 card-title">
+            お気に入り
+          </h3>
+          <div class="card-text">
+            記事本文
+          </div>
         </div>
       </div>
     </div>
-  </main>
-</body>
-</html>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      保有期限の中身
+    </div>
+  </div>
+{{--@endforeach--}}
+</div>
+@endsection
