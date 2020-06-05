@@ -6,10 +6,22 @@
 
     <form class="form-inline my-1">
 
+
+      @guest
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">ログイン</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" method="GET" href="{{ route('register') }}">アカウント作成</a>
+      </li>
+      @endguest
+
+      @auth
       <div class="md-form form-sm my-0">
         <input class="form-control form-control-sm mr-sm-2 mb-0" type="text" placeholder="キーワードで検索" aria-label="Search">
       </div>
-      <button class="btn btn-outline-white btn-sm my-0" type="submit">検索</button>
+      <button class="btn btn-outline-white btn-sm my-0" href="{{ route('register') }}" type="submit">検索</button>
     </form>
 
     <li class="nav-item">
@@ -36,9 +48,11 @@
         </button>
       </div>
     </li>
-    <form id="logout-button" method="POST" action="">
+    <form id="logout-button" method="POST" action="{{ route('logout') }}">{{-- レイアウトを崩さない処理 --}}
+      @csrf
     </form>
     <!-- Dropdown -->
+    @endauth
 
   </ul>
 

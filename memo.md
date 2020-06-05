@@ -1,3 +1,4 @@
 databese
 laraveldms
 
+api.phpをコメントアウト
