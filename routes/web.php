@@ -1,6 +1,6 @@
 <?php
 
 Auth::routes();
-Route::get('/', 'DocumentController@index');
-
+Route::get('/', 'HomeController@index');
+Route::get('/documents', 'DocumentController@index')->name('documents.index');
 

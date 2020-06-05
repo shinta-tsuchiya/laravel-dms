@@ -43,7 +43,7 @@
           マイページ
         </button>
         <div class="dropdown-divider"></div>
-        <button form="logout-button" class="dropdown-item" type="submit">
+        <button form="logout-button" class="dropdown-item" type="submit" href="/">
           ログアウト
         </button>
       </div>
