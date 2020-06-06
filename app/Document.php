@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Document extends Model
 {
+    protected $fillable = [
+        'title',
+        'body',
+    ];
+    
     public function user(): BelongsTo // 戻り値の型を宣言
     {
         /**

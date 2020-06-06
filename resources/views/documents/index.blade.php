@@ -2,8 +2,10 @@
 
 @section('title', '文書一覧') {{-- app.blade.php の @yirld('title') に対応 --}}
 
-@section('content')
 @include('navbar')
+
+@section('content')
+
 <br>
 <div class="container">
   <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -18,26 +20,26 @@
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      {{--@foreach($documents as $document)--}}
+      @foreach($documents as $document)
       <div class="card mt-3">
         <div class="card-body d-flex flex-row">
           <div>
             <div class="font-weight-bold">
-              タイトル
+              {{ $document->title }}
             </div>
             <div class="font-weight-lighter">
-              2020/2/1 12:00
+              <i class="fa fa-user mr-1"></i>
+              {{ $document->updated_at->format('Y/m/d H:i') }}
             </div>
-            <i class="fas fa-user-circle fa-3x mr-1"></i>
+            <div class="card-text">
+              お気に入り数
+            </div>  
           </div>
         </div>
         <div class="card-body pt-0 pb-2">
           <h3 class="h4 card-title">
-            お気に入り
+            {{ $document->body }}
           </h3>
-          <div class="card-text">
-            記事本文
-          </div>
         </div>
       </div>
     </div>
@@ -45,6 +47,6 @@
       保有期限の中身
     </div>
   </div>
-{{--@endforeach--}}
+@endforeach
 </div>
 @endsection
