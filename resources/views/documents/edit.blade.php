@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '新規作成')
+@section('title', '文書更新')
 
 @include('navbar')
 
@@ -12,9 +12,10 @@
             <div class="card-body pt-0">
               @include('error_card_list')
               <div class="card-text">
-                <form method="POST" action="{{ route('documents.store') }}">
+                <form method="POST" action="{{ route('documents.update', ['document' => $document]) }}">
+                @method('PATCH')
                 @include('documents.form')
-                <button type="submit" class="btn btn-block btn-primary mt-2 md-2">投稿する</button>
+                <button type="submit" class="btn btn-block btn-primary mt-2 md-2">更新する</button>
                 </form>
               </div>
             </div>

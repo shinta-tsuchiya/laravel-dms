@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Document::class, 'document');
+    }
+    
     public function index()
     {
         /**
@@ -33,5 +38,27 @@ class DocumentController extends Controller
         $document->user_id = $request->user()->id;
         $document->save();
         return redirect()->route('documents.index');
+    }
+
+    public function edit(Document $document)
+    {
+        return view('documents.edit', ['document' => $document]);
+    }
+
+    public function update(DocumentRequest $request, Document $document)
+    {
+        $document->fill($request->all())->save();
+        return redirect()->route('documents.index');
+    }
+
+    public function destroy(Document $document)
+    {
+        $document->delete();
+        return redirect()->route('documents.index');
+    }
+
+    public function show(Document $document)
+    {
+        return view('documents.show', ['document' => $document]);
     }
 }
