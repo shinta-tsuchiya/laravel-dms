@@ -1,6 +1,12 @@
 <nav class="md-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1">
 
+  @guest
   <a class="navbar-brand" href="/"><i class="fa fa-book mr-1" aria-hidden="true"></i>Document Management System</a>
+  @endguest
+
+  @auth {{-- ほぼ同じコード 別の方法を考える --}}
+  <a class="navbar-brand" href="/documents"><i class="fa fa-book mr-1" aria-hidden="true"></i>Document Management System</a>
+  @endauth
 
   <ul class="navbar-nav ml-auto">
 
