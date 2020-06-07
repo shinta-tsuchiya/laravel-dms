@@ -3,9 +3,7 @@
 Auth::routes();
 
 // ホーム
-Route::get('/', function() {
-  return view('home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 // 文書一覧
 Route::get('/documents', 'DocumentController@index')->name('documents.index');
