@@ -16,7 +16,7 @@ class DocumentPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function viewAny(?User $user)
+    public function viewAny(User $user)
     {
         return true;
     }
@@ -28,7 +28,7 @@ class DocumentPolicy
      * @param  \App\Document  $document
      * @return mixed
      */
-    public function view(?User $user, Document $document)
+    public function view(User $user, Document $document)
     {
         return true;
     }
