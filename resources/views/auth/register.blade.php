@@ -36,8 +36,13 @@
               </div>
               <button class="btn btn-block btn-primary mt-2 md-2" type="submit">ユーザー登録</button>
             </form>
+            <br>
             <div class="mt-0">
               <a href="{{ route('login') }}" class="card-text">ログインはこちら</a>
+            </div>
+            <br>
+            <div class="mt-0">
+              <a href="{{ route('home') }}" class="card-text">ホームへ</a>
             </div>
           </div>
         </div>
