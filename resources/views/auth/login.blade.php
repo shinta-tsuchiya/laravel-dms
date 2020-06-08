@@ -10,13 +10,11 @@
       <div class="card mt-3">
         <div class="card-body text-center">
           <h2 class="h3 card-title text-center mt-2">ログイン</h2>
-
           @include('error_card_list')
-
           <div class="card-text">
             <form method="POST" action="{{ route('login') }}">
               @csrf
-            
+
               <div class="md-form">
                 <label for="email">メールアドレス</label>
                 <input class="form-control" type="text" id="email" name="email" required value="{{ old('email') }}">
@@ -25,15 +23,19 @@
                 <label for="password">パスワード</label>
                 <input class="form-control" type="password" id="password" name="password" required>
               </div>
-            
-              <input type="hidden" name="remember" id="remember" value="on">
-            
-              <button class="btn btn-block btn-primary mt-2 md-2" type="submit">ログイン</button>
-            
-            </form>
 
+              <input type="hidden" name="remember" id="remember" value="on">
+
+              <button class="btn btn-block btn-primary mt-2 md-2" type="submit">ログイン</button>
+
+            </form>
+            <br>
             <div class="mt-0">
               <a href="{{ route('register') }}" class="card-text">ユーザー登録はこちら</a>
+            </div>
+            <br>
+            <div class="mt-0">
+              <a href="{{ route('home') }}" class="card-text">ホームへ</a>
             </div>
           </div>
         </div>
