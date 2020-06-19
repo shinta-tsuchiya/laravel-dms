@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto col col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
-      <h1 class="text-center"><a class="text-dark" href="/documents"></a></h1>
+      <br>
       <div class="card mt-3">
         <div class="card-body text-center">
           <h2 class="h3 card-title text-center mt-2">ログイン</h2>
@@ -29,10 +29,17 @@
               <button class="btn btn-block btn-primary mt-2 md-2" type="submit">ログイン</button>
 
             </form>
+
             <br>
             <div class="mt-0">
               <a href="{{ route('register') }}" class="card-text">ユーザー登録はこちら</a>
             </div>
+
+            <br>
+            <div class="mt-0">
+              <a href="{{ route('password.request') }}" class="card-text">パスワードを忘れた方</a>
+            </div>
+
             <br>
             <div class="mt-0">
               <a href="{{ route('home') }}" class="card-text">ホームへ</a>
