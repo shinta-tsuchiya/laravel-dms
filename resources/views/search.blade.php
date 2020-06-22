@@ -5,19 +5,37 @@
 @include('navbar')
 
 @section('content')
+
+{{-- 検索フォーム --}}
 <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mt-3">
-            <div class="card-body pt-0">
-              @include('error_card_list')
-              <div class="card-text">
-                <form method="POST" action="{{ route('documents.store') }}">
-                @include('documents.form')
-                <button type="submit" class="btn btn-block btn-primary mt-2 md-2">検索する</button>
-                </form>
-              </div>
-            </div>
-          </div>
+  <div class="row">
+    <div class="col-md-3">
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="text" name="keyword" value="{{ $keyword }}" placeholder="文書タイトルを入力">
+          <input type="submit" value="検索">
         </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{-- 文書タイトルの表示 --}}
+<div class="container">
+  @if(count($documents) > 0)
+  <div class="row">
+    @foreach($documents as $document)
+    <div class="col-md-3">
+      {{ $document->title }}
+    </div>
+    @endforeach
+  </div>
+  @endif
+
+  {{-- ページネーション機能 --}}
+  <div class="paginate">
+    {{ $documents->render('pagination::bootstrap-4') }}
+  </div>
+</div>
+
 @endsection

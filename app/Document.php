@@ -21,4 +21,9 @@ class Document extends Model
          */
         return $this->belongsTo('App\User');
     }
+
+    public function document(): BelongsTo
+    {
+        return $this->belongsTo('App\Document');
+    }
 }
