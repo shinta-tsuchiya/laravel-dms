@@ -10,26 +10,26 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-    public function search(Request $request)
+    public function index(Request $request)
     {
-        // キーワードを取得
+        // キーワードの受け取り
         $keyword = $request->input('keyword');
 
-        // もしキーワードが入力されている場合
-        if (!empty($keyword))
+        // もしキーワードがあったら
+        if(!empty($keyword))
         {
-            // 文書名から検索
-            $documents = DB::table('documents')
-                // where like あいまい検索 列名 LIKE 検索値
-                ->where('title', 'like', '%'.$keyword.'%')
-                ->paginate(4);
+            $searchs = DB::table('documents')
+            ->where('title', 'like', '%'.$keyword.'%')
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
         } else {
-            // キーワードが入力されていない場合
-            $documents = DB::table('documents')->paginate(4);
+            $searchs = DB::table('documents')->orderBy('created_at', 'desc')->paginate(5);
         }
+
         return view('search', [
-            'documents' => $documents,
+            'searchs' => $searchs,
             'keyword' => $keyword,
-        ]);
+            ]);
     }
 }

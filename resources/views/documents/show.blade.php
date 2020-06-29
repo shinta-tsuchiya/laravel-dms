@@ -5,7 +5,7 @@
 @include('navbar')
 
 @section('content')
-
+<br>
 <div class="container">
 
   <div class="col-xs">{{-- タイトル --}}
@@ -19,7 +19,6 @@
   <br>
 
   <div class="col-md-4">
-    <i class="fas fa-user-circle fa-3x mr-1"></i>{{-- アイコン --}}
     <div>
       <div class="font-weight-bold">{{ $document->user->name }}</div> {{-- ユーザー名を表示 --}}
       <div class="meta-info">
