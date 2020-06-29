@@ -33,10 +33,6 @@
         <a class="nav-link" href="">お気に入り</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link active" href="{{ ('search') }}">検索</a>
-      </li>
-
       <!-- Dropdown -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"

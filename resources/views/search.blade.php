@@ -13,29 +13,32 @@
       <form class="form-inline">
         <div class="form-group">
           <input type="text" name="keyword" value="{{ $keyword }}" placeholder="文書タイトルを入力">
-          <input type="submit" value="検索">
+          <input type="submit" value="検索" class="btn btn-info">
         </div>
       </form>
     </div>
   </div>
 </div>
 
-{{-- 文書タイトルの表示 --}}
+{{-- 文書の表示 --}}
 <div class="container">
-  @if(count($documents) > 0)
-  <div class="row">
-    @foreach($documents as $document)
-    <div class="col-md-3">
-      {{ $document->title }}
-    </div>
+  @if(count($searchs) > 0)
+  <li class="row">
+    @foreach($searchs as $search)
+    <li class="col-md-3">
+      {{ $search->title }}
+    </li>
     @endforeach
-  </div>
+  </li>
+  @else
+  <div>該当なし</div>
   @endif
 
+<br>
   {{-- ページネーション機能 --}}
-  <div class="paginate">
-    {{ $documents->render('pagination::bootstrap-4') }}
+  <div class="paginate justify-content-center">
+    {{ $searchs->render('pagination::bootstrap-4') }}
   </div>
 </div>
-
 @endsection
+
